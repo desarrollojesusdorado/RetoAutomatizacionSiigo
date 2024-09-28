@@ -7,28 +7,32 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Put;
 import org.apache.http.HttpHeaders;
 import starter.models.User;
+import starter.utils.DataGenerator;
+
+import java.util.Map;
 
 public class UpdateUser implements Task {
 
     private User user;
-    private int userId;
 
-    public UpdateUser(User user, int userId) {
+    public UpdateUser(User user) {
         this.user = user;
-        this.userId = userId;
     }
 
-    public static UpdateUser withInfo(User user, int userId) {
-        return new UpdateUser(user, userId);
+    public static UpdateUser withInfo(User user) {
+        return new UpdateUser(user);
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        Map<String, Object> userJson = DataGenerator.generateUserJson(user);
+
         actor.attemptsTo(
                 Put.to("/users/{id}")
                         .with(request -> request
-                                .pathParam("id", userId)
+                                .pathParam("id", userJson.get("id"))
                                 .header(HttpHeaders.CONTENT_TYPE, ContentType.JSON)
-                                .body(user))
+                                .body(userJson))
         );
         SerenityRest.lastResponse().prettyPrint();
     }

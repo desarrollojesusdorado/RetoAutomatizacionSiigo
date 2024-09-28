@@ -7,10 +7,15 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import org.apache.http.HttpHeaders;
 import starter.models.User;
+import starter.utils.DataGenerator;
+
+import java.util.Map;
+
+import static starter.utils.Constants.CREATE_USER;
 
 public class CreateUser implements Task {
 
-    private User user;
+    private final User user;
 
     public CreateUser(User user) {
         this.user = user;
@@ -21,11 +26,14 @@ public class CreateUser implements Task {
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        Map<String, Object> userJson = DataGenerator.generateUserJson(user);
+
         actor.attemptsTo(
-                Post.to("/users")
+                Post.to(CREATE_USER)
                         .with(request -> request
                                 .header(HttpHeaders.CONTENT_TYPE, ContentType.JSON)
-                                .body(user))
+                                .body(userJson))
         );
         SerenityRest.lastResponse().prettyPrint();
     }

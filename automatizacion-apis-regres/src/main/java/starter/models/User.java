@@ -1,22 +1,35 @@
 package starter.models;
 
 public class User {
-    private String name;
-    private String job;
+    private int id;
+    private String email;
+    private String firstName;
+    private String lastName;
 
     public User() {}
 
-    public User(String name, String job) {
-        this.name = name;
-        this.job = job;
+    public User(int id, String email, String firstName, String lastName) {
+        this.id = id;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     // Getters y setters
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public String getJob() {
-        return job;
+    public String getEmail() {
+        return email;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
 }

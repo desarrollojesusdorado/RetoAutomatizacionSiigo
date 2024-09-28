@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "starter.stepdefinitions",
-        //tags = "@CrearNuevoUsuario",
+        //tags = "@ActualizarUsuario",
         plugin = {"pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
