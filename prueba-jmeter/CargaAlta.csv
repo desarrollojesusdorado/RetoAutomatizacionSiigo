@@ -1,0 +1,3 @@
+Etiqueta;# Muestras;Media;Min;Max;Desv. Estándar;% Error;Rendimiento;Kb/sec;Sent KB/sec;Media de Bytes
+Petición API Regres;100;203;188;428;25,01;0,00%;0,16829;0,19;0,04;1185,4
+Total;100;203;188;428;25,01;0,00%;0,16829;0,19;0,04;1185,4
