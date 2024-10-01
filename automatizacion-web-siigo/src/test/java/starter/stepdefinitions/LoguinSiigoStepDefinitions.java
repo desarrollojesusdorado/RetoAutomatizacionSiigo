@@ -8,11 +8,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.WebDriver;
 import starter.questions.VerifyMessage;
-import starter.tasks.Loguin;
+import starter.tasks.Login;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.Matchers.equalTo;
@@ -33,7 +32,7 @@ public class LoguinSiigoStepDefinitions {
 
     @Cuando("el se autentica con el {string} y {string}")
     public void elSeAutenticaConElUsuarioYContrasena(String user, String password) {
-        OnStage.theActorInTheSpotlight().attemptsTo(Loguin.withCredentials(user,password));
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.withCredentials(user,password));
     }
 
     @Entonces("el verifica el loguin existoso con el mensaje {string}")

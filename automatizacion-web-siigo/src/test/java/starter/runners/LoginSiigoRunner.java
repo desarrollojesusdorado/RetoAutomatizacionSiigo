@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/loguin_siigo.feature",
         glue = "starter.stepdefinitions",
-        tags = "@LoguinExitoso",
+        //tags = "@LoguinExitoso",
         plugin = {"pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class LoguinSiigoRunner {
+public class LoginSiigoRunner {
 }

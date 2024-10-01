@@ -6,24 +6,21 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-
-import java.time.Duration;
-
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static starter.userinterface.LoguinPage.*;
 
-public class Loguin implements Task {
+public class Login implements Task {
 
     private String user;
     private String password;
 
-    public Loguin(String user, String password) {
+    public Login(String user, String password) {
         this.user = user;
         this.password = password;
     }
 
-    public static Loguin withCredentials(String user, String password) {
-        return Tasks.instrumented(Loguin.class, user,password);
+    public static Login withCredentials(String user, String password) {
+        return Tasks.instrumented(Login.class, user,password);
     }
 
     @Override
